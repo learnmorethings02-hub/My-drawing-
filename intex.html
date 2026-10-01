@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Art vs Real Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            padding: 20px;
+            text-align: center;
+        }
+        header {
+            margin: 30px 0 40px;
+        }
+        header h1 {
+            font-size: 2rem;
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1rem;
+            color: #94a3b8;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        .card-container {
+            background-color: transparent;
+            width: 100%;
+            height: 380px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border-radius: 15px;
+        }
+        .card-container:hover .card-inner,
+        .card-container.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid #334155;
+            background: #1e293b;
+        }
+        .card-front img, .card-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .tag {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(5px);
+        }
+        .card-front .tag {
+            background: rgba(56, 189, 248, 0.85);
+            color: #0f172a;
+            font-weight: bold;
+        }
+        .card-back .tag {
+            background: rgba(244, 63, 94, 0.85);
+            color: #fff;
+            font-weight: bold;
+        }
+        .card-back {
+            transform: rotateY(180deg);
+        }
+        footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🎨 My Art vs Real Gallery</h1>
+        <p>Tap on any card to flip and compare the Reference Image with My Drawing!</p>
+    </header>
+
+    <div class="gallery-grid">
+
+        <!-- Item 1: Flower -->
+        <div class="card-container" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="1000114853.jpg" alt="Real Flower">
+                    <div class="tag">Reference Image (Tap to Flip)</div>
+                </div>
+                <div class="card-back">
+                    <img src="1000114846.jpg" alt="My Drawing Flower">
+                    <div class="tag">My Drawing</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 2: Cherry Blossom Tree -->
+        <div class="card-container" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="1000114858.jpg" alt="Real Tree">
+                    <div class="tag">Reference Image (Tap to Flip)</div>
+                </div>
+                <div class="card-back">
+                    <img src="1000114849.jpg" alt="My Drawing Tree">
+                    <div class="tag">My Drawing</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 3: Cute Bunny -->
+        <div class="card-container" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="1000114854.jpg" alt="Real Bunny">
+                    <div class="tag">Reference Image (Tap to Flip)</div>
+                </div>
+                <div class="card-back">
+                    <img src="1000114841.jpg" alt="My Drawing Bunny">
+                    <div class="tag">My Drawing</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 4: Butterfly -->
+        <div class="card-container" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="1000114862.jpg" alt="Real Butterfly">
+                    <div class="tag">Reference Image (Tap to Flip)</div>
+                </div>
+                <div class="card-back">
+                    <img src="1000114843.jpg" alt="My Drawing Butterfly">
+                    <div class="tag">My Drawing</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 5: Green Hills Landscape -->
+        <div class="card-container" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="1000114860.jpg" alt="Real Landscape">
+                    <div class="tag">Reference Image (Tap to Flip)</div>
+                </div>
+                <div class="card-back">
+                    <img src="1000114850.jpg" alt="My Drawing Landscape">
+                    <div class="tag">My Drawing</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Created with passion &bull; Art vs Artist Gallery</p>
+    </footer>
+
+</body>
+</html>
